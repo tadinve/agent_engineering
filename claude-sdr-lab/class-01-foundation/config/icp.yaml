@@ -1,0 +1,30 @@
+# Ideal Customer Profile.
+# Every research and scoring agent reads this file to decide what "a good fit" means.
+# Edit this to match your real target market before running any agent.
+
+industry:
+  - manufacturing
+  - industrial automation
+
+company_size:
+  minimum_employees: 500
+  maximum_employees: 20000
+
+geography:
+  - United States
+  - Europe
+  - India
+
+target_roles:
+  - CIO
+  - CTO
+  - VP Digital Transformation
+  - Head of Data and AI
+  - Plant Operations Leader
+
+buying_signals:
+  - new AI leadership
+  - digital transformation program
+  - manufacturing automation investment
+  - data platform modernization
+  - GenAI hiring
