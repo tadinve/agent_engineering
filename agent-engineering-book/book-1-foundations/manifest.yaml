@@ -45,3 +45,18 @@ implemented_classes:
     chapter: 7
     tests_subdir: ch07
     depends_on: class-06-tool-engineering
+
+  - id: class-08-subagents-delegation-and-handoffs
+    chapter: 8
+    tests_subdir: ch08
+    depends_on: class-07-evidence-backed-agent-research
+
+  - id: class-09-workflow-orchestration-and-human-approval
+    chapter: 9
+    tests_subdir: ch09
+    depends_on: class-08-subagents-delegation-and-handoffs
+
+  - id: class-10-integrating-and-evaluating-the-mvp
+    chapter: 10
+    tests_subdir: ch10
+    depends_on: class-09-workflow-orchestration-and-human-approval

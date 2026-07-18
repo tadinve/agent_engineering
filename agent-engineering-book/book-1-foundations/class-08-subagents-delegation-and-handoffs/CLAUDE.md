@@ -67,12 +67,13 @@ Read these before doing any research or producing any output:
 
 ## Project status
 
-Currently at Chapter 7 (Evidence-Backed Agent Research). Research is now
-split into `.claude/skills/company-profiler/` (stable facts) and
-`.claude/skills/signal-hunter/` (timely developments), both calling the
-real tools from Chapter 6 and validating every evidence item against
-`src/evidence_policy_enforcer.py` before returning. The original Chapter 4
-`account-research` Skill is kept but marked superseded. No subagents yet
-(Chapter 8 splits these Skills into isolated subagents with handoff
-contracts), no orchestration (Chapter 9), no outreach composition or
-independent review (Chapter 10).
+Currently at Chapter 8 (Subagents, Delegation and Handoffs). Company
+Profiler and Signal Hunter are now real subagents under `.claude/agents/`
+— restricted to `Read`/`Bash` (no write access), scoped to only the
+context each needs, with explicit non-overlapping responsibilities. Each
+returns a compact handoff object (`schemas/handoff.schema.json`,
+`src/handoff.py`) rather than an inline result. The Chapter 7 Skill
+versions are kept but marked superseded. No orchestration across the two
+subagents yet (Chapter 9 adds a Campaign Manager, a workflow state
+machine, and a human approval gate), no outreach composition or
+independent review yet (Chapter 10).
