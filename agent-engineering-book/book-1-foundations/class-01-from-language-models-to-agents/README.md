@@ -1,0 +1,12 @@
+# Class 01 — From Language Models to Agents
+
+Concept chapter. No code to build — this class is where you decide *whether*
+the Claude SDR Lab should be an agent at all, and get oriented on the
+vocabulary (prompt / assistant / workflow / agent) the rest of the book
+relies on.
+
+Read `../../manuscript/book-1-foundations/ch01-from-language-models-to-agents.md`
+first. Then work through `BUILD.md` here — it's an exercise, not a build.
+
+Class 02 is where the first real artifact (the Claude Code workspace) gets
+created.

@@ -1,0 +1,29 @@
+# Evidence rules defined here per Chapter 3.6, applied by the research
+# Skill/agents starting Chapter 7 (Evidence-Backed Agent Research), and
+# later enforced deterministically by the guardrails in Chapter 25
+# (Deterministic Guardrails and Invariants).
+# Every external factual claim produced by any agent must satisfy this policy.
+
+required_fields_per_claim:
+  - source              # URL or named document the claim came from
+  - source_date         # when the source content was published/updated
+  - retrieval_date      # when the agent retrieved it
+  - evidence_text       # the quoted or paraphrased evidence itself
+  - confidence          # 0.0-1.0
+  - support_type        # one of: direct, inferred
+
+support_types:
+  direct: >
+    The source explicitly states the claim.
+  inferred: >
+    The claim is a reasoned conclusion drawn from one or more sources,
+    not a direct statement. Must still cite the sources it was inferred from.
+
+rejection_conditions:
+  - claim has no source
+  - source has no retrievable date
+  - source is older than staleness_days without a note explaining relevance
+  - claim states a person's identity or role without direct evidence linking them to it
+  - claim implies prior contact or familiarity with the recipient
+
+staleness_days: 180
