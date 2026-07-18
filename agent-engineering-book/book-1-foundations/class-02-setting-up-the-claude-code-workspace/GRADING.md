@@ -10,11 +10,15 @@ to this class — the things `pytest tests/ch02` cannot check.
    any comments/README — whether they could explain *why* `outputs/` is
    gitignored and `config/` isn't.
 
-2. **`.claude/settings.json` is minimal, not pre-loaded.** Chapter 2 is
-   workspace setup only — no hooks, no elaborate permission rules. A
-   submission that's already added permissions or hooks configuration is
-   working ahead of the material (Chapter 25, Book 3) without the context
-   for why those choices are being made. Flag it as premature, not wrong.
+2. **`.claude/settings.json` denies secrets, but goes no further.** It
+   should include a `permissions.deny` list blocking `.env`, key/pem files,
+   and anything under `secrets/` — basic hygiene, not Chapter 25/Book 3's
+   guardrail system. A submission with no permissions at all has missed
+   that `.gitignore` only controls what's committed, not what Claude can
+   read during a session. A submission that's already added hooks,
+   tool-call guardrails, or workflow invariants is working ahead of the
+   material without the context for why those choices are being made — flag
+   that as premature, not wrong.
 
 3. **`CLAUDE.md` is still a placeholder, and says why.** Chapter 3 is where
    this file gets written for real. A submission that's already filled in

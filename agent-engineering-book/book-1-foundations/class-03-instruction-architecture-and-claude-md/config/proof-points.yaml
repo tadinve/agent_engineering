@@ -1,0 +1,60 @@
+# Approved evidence registry for claims about ourselves (not the prospect).
+#
+# offering.yaml's proof_points are the sales-facing summary; this file is
+# the enforceable source of truth behind them. The same evidence discipline
+# CLAUDE.md requires for claims about a prospect (source, date, confidence)
+# applies to claims about us — an unsourced claim about our own experience
+# is exactly as fabricatable as an unsourced claim about theirs, and the
+# Message Composer / Evidence Reviewer (Ch. 10) must be able to check both
+# the same way: look up the ID, confirm it's approved, confirm the context
+# it's being used in is allowed.
+
+proof_points:
+  - proof_id: PP-001
+    approved_claim: >
+      Delivered production AI systems for industrial and manufacturing
+      enterprises.
+    source: internal case study, ref CS-2025-014 (client name withheld)
+    disclosure_status: client-name-confidential
+    allowed_contexts:
+      - first-touch outreach
+      - discovery calls
+    prohibited_wording:
+      - naming the specific client without written approval
+    approved_date: "2026-01-05"
+    review_date: "2026-07-05"
+
+  - proof_id: PP-002
+    approved_claim: >
+      Experience integrating GenAI with existing ERP, MES, and data
+      platforms.
+    source: internal delivery records, three engagements 2024-2025
+    disclosure_status: public
+    allowed_contexts:
+      - first-touch outreach
+      - discovery calls
+      - proposals
+    prohibited_wording:
+      - implying integration with any specific named third-party product
+        not actually used in a cited engagement
+    approved_date: "2026-01-05"
+    review_date: "2026-07-05"
+
+  - proof_id: PP-003
+    approved_claim: >
+      Advisory led by practitioners who have shipped agentic systems, not
+      slideware.
+    source: team bios / delivery history, internal
+    disclosure_status: public
+    allowed_contexts:
+      - first-touch outreach
+      - discovery calls
+      - proposals
+    prohibited_wording:
+      - specific system names or client identities not separately approved
+    approved_date: "2026-01-05"
+    review_date: "2026-07-05"
+
+# Rejection rule for any agent using this registry: a proof point past its
+# review_date is stale and must not be used until re-approved, same as an
+# external claim past evidence-policy.yaml's staleness_days.

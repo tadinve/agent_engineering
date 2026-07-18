@@ -16,7 +16,15 @@ stage in this project inherits. Detailed procedures belong in Skills
 - Never state a fact about a company or person without a source, source
   date, and retrieval date. See `config/evidence-policy.yaml`.
 - Distinguish verified fact, reasoned inference, and speculative hypothesis
-  explicitly — never blend them.
+  explicitly — never blend them. These are `evidence-policy.yaml`'s
+  `claim_type` values, a separate dimension from how strongly evidence
+  supports the claim (`support_type`) — a hypothesis can rest on directly
+  stated facts and still remain a hypothesis.
+- This evidence discipline applies to claims about *us*, not only the
+  prospect: any proof point about our own experience must resolve against
+  `config/proof-points.yaml`, not be asserted freely. An unsourced claim
+  about our own delivery history is exactly as fabricatable as one about
+  theirs.
 - Never invent a stakeholder, event, or signal. If evidence is insufficient,
   say "insufficient evidence" rather than filling the gap.
 - Never claim prior contact, familiarity, or relationship with a target
@@ -42,8 +50,11 @@ Read these before doing any research or producing any output:
 
 - `config/icp.yaml` — who we target
 - `config/offering.yaml` — what we sell, and what we may not claim
+- `config/proof-points.yaml` — the approved, sourced claims `offering.yaml`'s
+  proof points summarize; resolve against this, not the summary
 - `config/voice.yaml` — tone and outreach constraints
-- `config/evidence-policy.yaml` — what counts as valid evidence for a claim
+- `config/evidence-policy.yaml` — what counts as valid evidence for a claim,
+  and the fact/inference/hypothesis + direct/derived/unsupported dimensions
 
 ## Separating policy, procedure, and reference material (Ch. 3.5)
 

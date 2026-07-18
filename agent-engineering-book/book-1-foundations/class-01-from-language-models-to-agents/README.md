@@ -1,5 +1,9 @@
 # Class 01 — From Language Models to Agents
 
+**Before this class:** complete `../SETUP.md` — you need Claude Code
+installed and authenticated to do this class's exercise, and that's a
+one-time setup step, not part of Class 01 or Class 02's actual content.
+
 Concept chapter. No code to build — this class is where you decide *whether*
 the Claude SDR Lab should be an agent at all, and get oriented on the
 vocabulary (prompt / assistant / workflow / agent) the rest of the book

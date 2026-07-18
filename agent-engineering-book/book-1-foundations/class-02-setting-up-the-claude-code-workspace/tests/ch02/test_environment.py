@@ -32,6 +32,20 @@ def test_claude_settings_is_valid_json():
     json.loads(settings_path.read_text())
 
 
+def test_claude_settings_denies_secret_reads():
+    """.gitignore only controls what's committed — it does nothing to stop
+    Claude reading a file during a session. permissions.deny is what
+    actually blocks the read, and it needs to exist from Class 2 onward,
+    before any real secret exists to accidentally expose."""
+    settings = json.loads((REPO_ROOT / ".claude" / "settings.json").read_text())
+    deny = settings.get("permissions", {}).get("deny", [])
+    assert deny, ".claude/settings.json has no permissions.deny list"
+
+    deny_text = " ".join(deny)
+    for pattern in [".env", "secrets"]:
+        assert pattern in deny_text, f"permissions.deny doesn't cover {pattern!r}"
+
+
 def test_claude_md_exists():
     assert (REPO_ROOT / "CLAUDE.md").exists(), "CLAUDE.md is missing at repo root"
 

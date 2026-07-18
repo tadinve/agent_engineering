@@ -19,8 +19,12 @@ required to run its tests.
 
 ## Run the test
 
+Requires Python 3.11+.
+
 ```
 cd class-02-setting-up-the-claude-code-workspace
+python3 -m venv .venv && source .venv/bin/activate
+pip install -r requirements-dev.txt
 python3 -m pytest tests/ch02 -v
 ```
 

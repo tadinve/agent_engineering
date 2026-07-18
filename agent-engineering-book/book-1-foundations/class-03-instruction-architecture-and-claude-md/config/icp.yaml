@@ -7,8 +7,8 @@ industry:
   - industrial automation
 
 company_size:
-  minimum_employees: 500
-  maximum_employees: 20000
+  minimum_employees: 5000
+  maximum_employees: null   # no upper bound — large multinationals are the norm for this ICP
 
 geography:
   - United States

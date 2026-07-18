@@ -7,8 +7,9 @@ Claude Code itself, not by writing files.
 
 ## Prerequisites
 
-- Claude Code installed and authenticated (see Class 02 if not yet done —
-  it's fine to skim ahead just to install the CLI).
+- **`../SETUP.md` complete** — Claude Code installed and authenticated. This
+  is a one-time setup step, done once before Class 01, not something you
+  learn by jumping ahead into Class 02.
 - You've read `ch01-from-language-models-to-agents.md`.
 
 ## Steps

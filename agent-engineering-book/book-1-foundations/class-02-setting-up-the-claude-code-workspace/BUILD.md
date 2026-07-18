@@ -10,9 +10,8 @@ directory, then diff your result against this one.
 
 ## Prerequisites
 
-- Claude Code installed and authenticated.
-- Git, Python 3.11+.
-- Nothing else — this is the starting point.
+- **`../SETUP.md` complete** (Claude Code, Git, Python 3.11+).
+- Nothing else — this is the first real artifact of the course.
 
 ## Steps
 
@@ -32,11 +31,14 @@ directory, then diff your result against this one.
    > `config/` for business-context YAML files, `src/` for tool
    > implementations, `data/` for seed data, `outputs/` for generated
    > artifacts (should be gitignored), `tests/` for gate tests organized by
-   > chapter, and `evals/` for evaluation datasets. Create a minimal
-   > `.claude/settings.json` and an empty `CLAUDE.md` placeholder — I'll
-   > write real content in a later step. Add a `.gitignore` covering
-   > `outputs/`, Python/Node cruft, secrets (`.env`, `*.sqlite`), and OS
-   > files."
+   > chapter, and `evals/` for evaluation datasets. In `.claude/settings.json`,
+   > add a `permissions.deny` list blocking Claude from reading `.env`,
+   > `.env.*`, `*.pem`, `*.key`, anything under `secrets/`, and `*.sqlite*`
+   > files — even though nothing secret exists yet, get the habit right from
+   > the start. Create an empty `CLAUDE.md` placeholder — I'll write real
+   > content in a later step. Add a `.gitignore` covering `outputs/`,
+   > Python/Node cruft, secrets (`.env`, `*.sqlite`), and OS files. Also add a
+   > `requirements-dev.txt` with `pytest`."
 
 3. Confirm you understand what Claude just created before moving on — ask
    it to explain what `.claude/settings.json` controls, and what the
@@ -45,6 +47,13 @@ directory, then diff your result against this one.
    sessions are not memory. If your answer to "what does Claude remember
    between sessions" is "the conversation," that's wrong — it's whatever
    got written to disk.)
+
+   Also confirm you understand the difference between `.gitignore` and
+   `permissions.deny` — they solve different problems. `.gitignore` keeps a
+   file out of what gets *committed*; it does nothing to stop Claude from
+   *reading* it during a session. `permissions.deny` is what actually
+   blocks the read. A `.env` file that's gitignored but not permission-denied
+   can still end up quoted back in a response or a generated file.
 
 4. Ask Claude to write a verification test — or better, hand it this
    class's actual requirement and let it design the checks:
@@ -63,6 +72,8 @@ directory, then diff your result against this one.
 
 ```
 cd class-02-setting-up-the-claude-code-workspace
+python3 -m venv .venv && source .venv/bin/activate
+pip install -r requirements-dev.txt
 python3 -m pytest tests/ch02 -v
 ```
 

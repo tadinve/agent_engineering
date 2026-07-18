@@ -18,6 +18,7 @@ REQUIRED_CONFIG_FILES = [
     "offering.yaml",
     "voice.yaml",
     "evidence-policy.yaml",
+    "proof-points.yaml",
 ]
 
 
@@ -51,3 +52,41 @@ def test_evidence_policy_defines_required_fields():
     assert "required_fields_per_claim" in data
     for field in ["source", "source_date", "retrieval_date", "confidence"]:
         assert field in data["required_fields_per_claim"]
+
+
+def test_evidence_policy_separates_claim_type_from_support_type():
+    """claim_type (fact/inference/hypothesis) and support_type (direct/
+    derived/unsupported) are different dimensions and must not be merged
+    into one enum — a hypothesis can be directly evidenced and still be a
+    hypothesis."""
+    data = yaml.safe_load((CONFIG_DIR / "evidence-policy.yaml").read_text())
+    assert "claim_type" in data["required_fields_per_claim"]
+    assert "support_type" in data["required_fields_per_claim"]
+
+    assert set(data["claim_types"].keys()) == {"fact", "inference", "hypothesis"}
+    assert set(data["support_types"].keys()) == {"direct", "derived", "unsupported"}
+
+
+def test_proof_points_registry_is_well_formed():
+    data = yaml.safe_load((CONFIG_DIR / "proof-points.yaml").read_text())
+    assert "proof_points" in data
+    assert len(data["proof_points"]) > 0
+    required = {"proof_id", "approved_claim", "source", "disclosure_status", "review_date"}
+    for entry in data["proof_points"]:
+        missing = required - entry.keys()
+        assert not missing, f"{entry.get('proof_id', '?')} missing: {missing}"
+
+
+def test_offering_proof_points_resolve_against_registry():
+    """offering.yaml's proof_points is a human-readable summary, not the
+    source of truth — every ID it lists must exist in proof-points.yaml."""
+    offering = yaml.safe_load((CONFIG_DIR / "offering.yaml").read_text())
+    registry = yaml.safe_load((CONFIG_DIR / "proof-points.yaml").read_text())
+    registry_ids = {p["proof_id"] for p in registry["proof_points"]}
+
+    summary_ids = {
+        list(entry.keys())[0] if isinstance(entry, dict) else entry.split(":")[0]
+        for entry in offering["proof_points"]["summary"]
+    }
+    missing = summary_ids - registry_ids
+    assert not missing, f"offering.yaml references unknown proof IDs: {missing}"

@@ -1,0 +1,57 @@
+name: Book 1 — class gate tests
+
+on:
+  push:
+    paths:
+      - "agent-engineering-book/book-1-foundations/**"
+      - ".github/workflows/book-1-class-tests.yml"
+  pull_request:
+    paths:
+      - "agent-engineering-book/book-1-foundations/**"
+      - ".github/workflows/book-1-class-tests.yml"
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    outputs:
+      classes: ${{ steps.find.outputs.classes }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: find
+        name: Find every built class (has a tests/ dir)
+        run: |
+          cd agent-engineering-book/book-1-foundations
+          dirs=$(find . -maxdepth 1 -type d -name 'class-*' -printf '%f\n' | sort | while read -r d; do
+            if [ -d "$d/tests" ]; then echo "$d"; fi
+          done | jq -R -s -c 'split("\n")[:-1]')
+          echo "classes=$dirs" >> "$GITHUB_OUTPUT"
+          echo "Discovered: $dirs"
+
+  test:
+    needs: discover
+    if: needs.discover.outputs.classes != '[]'
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        class: ${{ fromJson(needs.discover.outputs.classes) }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies for ${{ matrix.class }}
+        working-directory: agent-engineering-book/book-1-foundations/${{ matrix.class }}
+        run: |
+          if [ -f requirements-dev.txt ]; then
+            pip install -r requirements-dev.txt
+          else
+            echo "::warning::${{ matrix.class }} has no requirements-dev.txt"
+            pip install pytest
+          fi
+
+      - name: Run gate tests for ${{ matrix.class }}
+        working-directory: agent-engineering-book/book-1-foundations/${{ matrix.class }}
+        run: python -m pytest tests/ -v

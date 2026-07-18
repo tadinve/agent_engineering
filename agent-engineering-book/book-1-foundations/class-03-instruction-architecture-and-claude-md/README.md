@@ -22,8 +22,12 @@ required.
 
 ## Run the tests
 
+Requires Python 3.11+.
+
 ```
 cd class-03-instruction-architecture-and-claude-md
+python3 -m venv .venv && source .venv/bin/activate
+pip install -r requirements-dev.txt
 python3 -m pytest tests/ -v
 ```
 

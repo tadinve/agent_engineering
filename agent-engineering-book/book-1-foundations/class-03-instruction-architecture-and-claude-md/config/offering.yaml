@@ -21,9 +21,15 @@ problems_addressed:
   - talent gaps in applied AI engineering
 
 proof_points:
-  - delivered production AI systems for industrial and manufacturing enterprises
-  - experience integrating GenAI with existing ERP, MES and data platforms
-  - advisory led by practitioners who have shipped agentic systems, not slideware
+  # Summary only. The enforceable source of truth — source, disclosure
+  # status, allowed contexts, review date — is proof-points.yaml. Any agent
+  # citing a proof point must resolve it against that registry, not this
+  # list; this list exists for humans skimming this file, not for agents.
+  see: proof-points.yaml
+  summary:
+    - PP-001: delivered production AI systems for industrial and manufacturing enterprises
+    - PP-002: experience integrating GenAI with existing ERP, MES and data platforms
+    - PP-003: advisory led by practitioners who have shipped agentic systems, not slideware
 
 exclusions:
   - we do not build or sell foundation models

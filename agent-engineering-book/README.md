@@ -17,6 +17,25 @@ Source repo for the book by Venkatesh Tadinada.
 - **`my-work/`** — gitignored personal workspace for your own attempts; see
   `my-work/README.md`.
 
+## Current status
+
+Precise, not aspirational, as of this writing:
+
+- **Manuscript**: all 50 chapter blueprints drafted (~19,500 words total,
+  ~4,500 across Book 1's 10 chapters — see the depth caveat under "The five
+  books" below). None has yet been expanded into a full technical chapter
+  with code, worked examples, and exercises inline.
+- **Implementation**: Book 1, Classes 02 and 03 built and tested (19
+  passing gate tests combined, plus CI). Class 01 is a concept exercise
+  (no code). Classes 04–10 are placeholder folders only.
+- **Process infrastructure**: `HOW-TO-WORK-A-CLASS.md`, the LLM-as-judge
+  grading template, and CI are in place and apply to whatever's built.
+
+The honest one-line summary: **a fully architected 50-chapter programme,
+with Book 1 under active implementation and Classes 1–3 complete.** Not yet
+a finished manuscript, and not yet a working Claude SDR Lab MVP — that
+requires Classes 4–10.
+
 ## The five books
 
 | Book | Chapters | Theme |
@@ -27,8 +46,15 @@ Source repo for the book by Venkatesh Tadinada.
 | 4 — AgentOps and Production Engineering | 31–40 | Operating, evaluating, scaling |
 | 5 — Frontier and Specialized Agent Systems | 41–50 | Multimodal, graph, model adaptation |
 
-Each chapter file in `manuscript/` contains the full chapter text — intro
-paragraph plus all `x.1`–`x.6` subsections — organized one file per chapter.
+Each chapter file in `manuscript/` contains the intro paragraph and all
+`x.1`–`x.6` subsections given in the original source outline, organized one
+file per chapter — nothing here is an empty stub. But be precise about what
+that means: at ~400–450 words average per Book 1 chapter, these are
+**complete chapter blueprints** (the full intended coverage, in outline-plus-
+paragraph form), not yet **full technical chapters** with worked code,
+diagrams, failure examples, and exercises expanded to a typical
+1,500–2,500-word technical-book chapter length. Expanding blueprint into full
+chapter is separate, not-yet-started work — see "Current status" above.
 
 ## How Book 1 is organized
 

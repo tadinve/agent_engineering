@@ -147,6 +147,12 @@ Every class includes:
 - deployment instructions
 - a completed reference implementation
 
+*(This describes the finished companion repository this book is building
+toward. Not every class has reached this yet — see the repository's own
+`README.md` for which classes are currently implemented versus still
+outlined. Treat this list as the destination, not a claim about today's
+state.)*
+
 Readers implement and deploy a working increment after every class. They can run the supplied test suite against their own solution and compare its performance with the reference implementation.
 
 Depending on the chapter, comparisons may include:
@@ -163,7 +169,7 @@ Depending on the chapter, comparisons may include:
 - reviewer scores
 - policy compliance
 
-The repository supports flexible entry into the programme. Each chapter has a corresponding branch, tag or release containing the completed code from the preceding chapter. A reader who wants to begin midway through the book can retrieve a known working baseline and continue from that point.
+The repository supports flexible entry into the programme. Each chapter has a corresponding checkpoint containing the completed code from the preceding chapter — implemented in this repository as a self-sufficient folder per class rather than a Git branch or tag, so a reader can open any built class directly without checking out a different ref. A reader who wants to begin midway through the book can retrieve a known working baseline and continue from that point, once that class has been built.
 
 The Git history also makes the architecture transparent. Readers can see when state was introduced, how memory changed the system, where retries were added, how security controls evolved and what production optimization altered.
 
