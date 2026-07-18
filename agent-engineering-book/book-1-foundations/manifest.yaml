@@ -25,3 +25,23 @@ implemented_classes:
     chapter: 3
     tests_subdir: ch03
     depends_on: class-02-setting-up-the-claude-code-workspace
+
+  - id: class-04-skills-and-reusable-capabilities
+    chapter: 4
+    tests_subdir: ch04
+    depends_on: class-03-instruction-architecture-and-claude-md
+
+  - id: class-05-structured-outputs-and-data-contracts
+    chapter: 5
+    tests_subdir: ch05
+    depends_on: class-04-skills-and-reusable-capabilities
+
+  - id: class-06-tool-engineering
+    chapter: 6
+    tests_subdir: ch06
+    depends_on: class-05-structured-outputs-and-data-contracts
+
+  - id: class-07-evidence-backed-agent-research
+    chapter: 7
+    tests_subdir: ch07
+    depends_on: class-06-tool-engineering

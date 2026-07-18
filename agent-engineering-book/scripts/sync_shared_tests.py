@@ -58,20 +58,23 @@ def sync(check_only: bool) -> list[str]:
                 continue
 
             target_dir = class_dir / "tests" / subdir
-            for shared_file in sorted(shared_dir.glob("*.py")):
-                target_file = target_dir / shared_file.name
+            # Every file, not just *.py — Ch. 6 added non-Python fixtures
+            # (fixtures/*.txt, *.json) that a test file depends on just as
+            # much as its own source. Missing those silently would mean
+            # --check passes while a test actually can't run standalone.
+            for shared_file in sorted(f for f in shared_dir.rglob("*") if f.is_file()):
+                rel = shared_file.relative_to(shared_dir)
+                target_file = target_dir / rel
                 if check_only:
                     if not target_file.exists():
-                        problems.append(
-                            f"{entry['id']}/tests/{subdir}/{shared_file.name} is missing"
-                        )
+                        problems.append(f"{entry['id']}/tests/{subdir}/{rel} is missing")
                     elif not filecmp.cmp(shared_file, target_file, shallow=False):
                         problems.append(
-                            f"{entry['id']}/tests/{subdir}/{shared_file.name} is out of "
-                            f"sync with tests_shared/{subdir}/{shared_file.name}"
+                            f"{entry['id']}/tests/{subdir}/{rel} is out of "
+                            f"sync with tests_shared/{subdir}/{rel}"
                         )
                 else:
-                    target_dir.mkdir(parents=True, exist_ok=True)
+                    target_file.parent.mkdir(parents=True, exist_ok=True)
                     shutil.copyfile(shared_file, target_file)
 
     return problems
