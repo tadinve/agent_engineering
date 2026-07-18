@@ -62,10 +62,14 @@ Source repo for the book by Venkatesh Tadinada.
 
 Precise, not aspirational, as of this writing:
 
-- **Manuscript**: all 50 chapter blueprints drafted (~19,500 words total,
-  ~4,500 across Book 1's 10 chapters — see the depth caveat under "The five
-  books" below). None has yet been expanded into a full technical chapter
-  with code, worked examples, and exercises inline.
+- **Manuscript**: all 50 chapter blueprints drafted. Book 1's 10 chapters
+  have since been expanded into full technical chapters (~23,700 words
+  total, averaging ~2,370 words/chapter) — each goes beyond its original
+  six `x.1`–`x.6` subsections with additional topics, worked examples and
+  code excerpts drawn from the actual reference implementation, a Common
+  Pitfalls section, and end-of-chapter exercises. Books 2–5 (chapters
+  11–50, ~15,000 words) remain at original blueprint depth — see the
+  depth caveat under "The five books" below.
 - **Implementation**: Book 1, Classes 02 and 03 built and tested, plus CI.
   Class 02 has 6 gate tests; Class 03 is cumulative and has 114 (the same 6
   inherited from Class 02, unchanged, plus 108 new — not two independently-
@@ -98,15 +102,25 @@ requires Classes 4–10.
 | 4 — AgentOps and Production Engineering | 31–40 | Operating, evaluating, scaling |
 | 5 — Frontier and Specialized Agent Systems | 41–50 | Multimodal, graph, model adaptation |
 
-Each chapter file in `manuscript/` contains the intro paragraph and all
-`x.1`–`x.6` subsections given in the original source outline, organized one
-file per chapter — nothing here is an empty stub. But be precise about what
-that means: at ~400–450 words average per Book 1 chapter, these are
-**complete chapter blueprints** (the full intended coverage, in outline-plus-
-paragraph form), not yet **full technical chapters** with worked code,
-diagrams, failure examples, and exercises expanded to a typical
-1,500–2,500-word technical-book chapter length. Expanding blueprint into full
-chapter is separate, not-yet-started work — see "Current status" above.
+Every chapter file in `manuscript/` contains at least the intro paragraph and
+the `x.1`–`x.6` subsections given in the original source outline — nothing
+here is an empty stub. Depth varies by book, and it's worth being precise
+about the difference:
+
+- **Book 1** (chapters 1–10) has been expanded past blueprint stage into
+  **full technical chapters**: each subsection is fleshed out with concrete
+  detail, most chapters add several additional subsections beyond the
+  original `x.6` (worked code and config excerpts pulled from the actual
+  `book-1-foundations/` reference implementation, not invented examples), and
+  every chapter closes with a Common Pitfalls section and end-of-chapter
+  exercises. Average length is ~2,370 words, in the typical technical-book
+  chapter range.
+- **Books 2–5** (chapters 11–50, ~15,000 words) remain **chapter blueprints**
+  — the full intended coverage, in outline-plus-paragraph form, at
+  ~350–400 words per chapter — not yet expanded to the same depth. That
+  expansion is separate, not-yet-started work, and would naturally follow
+  each book's own reference implementation being built, the same way Book
+  1's expansion followed Book 1's.
 
 ## How Book 1 is organized
 
