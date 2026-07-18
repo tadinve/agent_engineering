@@ -75,3 +75,13 @@ the instruction-precedence section — it's easy to skip because nothing in
 Chapters 1-3 has tested it yet (that comes in Chapter 26, Prompt Injection).
 A CLAUDE.md that's silent on precedence now will need revisiting later;
 better to have the sentence in place even before it's load-bearing.
+
+## Grade it
+
+Passing tests is the gate check, not the whole picture — a `CLAUDE.md` that
+exists, references all four configs, and parses fine can still be a bad
+`CLAUDE.md`. Run the quality check: `GRADING.md` in this folder plus
+`../../GRADING-RUBRIC-TEMPLATE.md` walk through having Claude judge your
+submission against the gold reference on concision, instruction precedence,
+and policy/procedure/reference separation — the things this chapter is
+actually about.

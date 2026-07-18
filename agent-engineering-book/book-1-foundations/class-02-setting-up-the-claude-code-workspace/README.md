@@ -13,6 +13,9 @@ required to run its tests.
   `.gitkeep`. Nothing has been decided yet about business context, tools, or
   data — that starts Chapter 3 onward.
 - `tests/ch02/` — the environment-verification gate test.
+- `BUILD.md` — how to build this yourself, using Claude.
+- `GRADING.md` — quality-check criteria, for use with the LLM-as-judge step
+  in `../../HOW-TO-WORK-A-CLASS.md`.
 
 ## Run the test
 

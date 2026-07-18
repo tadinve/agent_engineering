@@ -9,6 +9,13 @@ Source repo for the book by Venkatesh Tadinada.
   the current focus.** Books 2–5 don't have code folders yet.
 - **[`archive/`](archive/)** — superseded planning documents and an earlier,
   shorter build of the same underlying project, kept for reference.
+- **[`HOW-TO-WORK-A-CLASS.md`](HOW-TO-WORK-A-CLASS.md)** — the generic
+  workflow for building any class, fork through grading. Read this before
+  starting Class 02.
+- **[`GRADING-RUBRIC-TEMPLATE.md`](GRADING-RUBRIC-TEMPLATE.md)** — the
+  generic LLM-as-judge template each class's `GRADING.md` plugs into.
+- **`my-work/`** — gitignored personal workspace for your own attempts; see
+  `my-work/README.md`.
 
 ## The five books
 
@@ -47,13 +54,18 @@ Chapter 5 — you don't need to have built classes 2–4 first. This trades
 some duplication across folders for the ability to jump to any checkpoint
 directly.
 
-Each class folder has (or will have) two documents:
+Each class folder has (or will have) three documents:
 
 - **`README.md`** — what's in this snapshot, what's new since the last class.
 - **`BUILD.md`** — a practical, step-by-step walkthrough for building this
-  class's deliverable yourself using Claude Code, ending in a verify step
-  (`pytest`) you can run to check your own attempt against the reference
-  solution already in the folder.
+  class's deliverable yourself using Claude Code, ending in a `pytest` gate
+  check against the reference solution already in the folder.
+- **`GRADING.md`** — the quality-check criteria for this specific class, for
+  use with `GRADING-RUBRIC-TEMPLATE.md`'s LLM-as-judge step. Gate tests
+  check the structural contract; grading checks whether the work is
+  actually good.
+
+Full procedure, fork through grading: `HOW-TO-WORK-A-CLASS.md`.
 
 ## History — how this became one project
 

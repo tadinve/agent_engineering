@@ -1,0 +1,7 @@
+# Personal attempts at classes — never tracked except this folder's own README.
+my-work/*
+!my-work/README.md
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db

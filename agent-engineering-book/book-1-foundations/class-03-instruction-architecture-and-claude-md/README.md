@@ -17,6 +17,8 @@ required.
   see the repo-level README's "History" section).
 - `tests/ch03/` — gate test confirming CLAUDE.md references all four config
   files and that they're valid, well-formed YAML.
+- `BUILD.md` / `GRADING.md` — how to build this class and how to have Claude
+  grade your attempt against this reference; see `../../HOW-TO-WORK-A-CLASS.md`.
 
 ## Run the tests
 

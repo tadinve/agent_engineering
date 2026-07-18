@@ -77,3 +77,10 @@ If yours checks materially less (e.g. doesn't verify `.claude/settings.json`
 is valid JSON), add that check — a workspace that "looks right" but has a
 malformed settings file is exactly the kind of failure this test exists to
 catch before it wastes time in Class 03 onward.
+
+## Grade it
+
+Passing tests is the gate check, not the whole picture. Run the quality
+check too: `GRADING.md` in this folder plus
+`../../GRADING-RUBRIC-TEMPLATE.md` walk through having Claude judge your
+submission against the gold reference on things pytest can't verify.
